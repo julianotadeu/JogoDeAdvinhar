@@ -27,20 +27,49 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        tituloMaior = new javax.swing.JLabel();
+        tituloMenor = new javax.swing.JLabel();
+        txtEntradaNumero = new javax.swing.JLabel();
+        tentativa = new javax.swing.JTextField();
+        botaoEnviarPalpite = new javax.swing.JButton();
+        printTelaUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("JOGO DE ADIVINHAÇÃO");
-        jLabel1.setName("tituloMaior"); // NOI18N
+        tituloMaior.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        tituloMaior.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloMaior.setText("JOGO DE ADIVINHAÇÃO");
+        tituloMaior.setName("tituloMaior"); // NOI18N
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("TENTE ADIVINHAR QUAL NUMERO DE 1 ATÉ 100 FOI SORTEADO!");
+        tituloMenor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tituloMenor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloMenor.setText("TENTE ADIVINHAR QUAL NUMERO DE 1 ATÉ 100 FOI SORTEADO!");
+
+        txtEntradaNumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEntradaNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtEntradaNumero.setText("DIGITE UM NUMERO:");
+
+        tentativa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tentativa.setText("100");
+        tentativa.setToolTipText("");
+        tentativa.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tentativa.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        tentativa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tentativaActionPerformed(evt);
+            }
+        });
+
+        botaoEnviarPalpite.setBackground(new java.awt.Color(0, 153, 153));
+        botaoEnviarPalpite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoEnviarPalpite.setText("ENVIAR PALPITE");
+
+        printTelaUsuario.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        printTelaUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        printTelaUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        printTelaUsuario.setText("Por favor digite um nùmero entre 1 e 100");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,20 +79,40 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tituloMaior, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addComponent(tituloMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(txtEntradaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tentativa, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(printTelaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botaoEnviarPalpite, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(261, 261, 261))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tituloMaior, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addComponent(tituloMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(printTelaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEntradaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tentativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoEnviarPalpite, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,6 +128,10 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tentativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentativaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tentativaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,8 +170,12 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton botaoEnviarPalpite;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel printTelaUsuario;
+    private javax.swing.JTextField tentativa;
+    private javax.swing.JLabel tituloMaior;
+    private javax.swing.JLabel tituloMenor;
+    private javax.swing.JLabel txtEntradaNumero;
     // End of variables declaration//GEN-END:variables
 }
