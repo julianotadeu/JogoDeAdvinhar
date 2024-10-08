@@ -1,20 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.solutis.jogo.de.adivinhacao;
 
-/**
- *
- * @author Juliano
- */
-public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
+import java.util.Random;
 
-    /**
-     * Creates new form JogoDeAdivinhacaoView
-     */
+
+
+public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
+    
+    int tentativas = 5;
+    Random random = new Random();
+    int numeroSorteado = random.nextInt(100)+1;
+    boolean respostaCerta = false;
+    
     public ViewJogoDeAdivinhacao() {
         initComponents();
+        
+        Random random = new Random();
+        numeroSorteado = random.nextInt(100) + 1;
+        txtStatusTentativas.setText("Tentativas restantes: " + tentativas);
+        txtFeedBack.setText("Por favor, digite um número entre 1 e 100.");
+        botaoJogarNovamente.setVisible(false);
+        botaoFecharJogo.setVisible(false);
     }
 
     /**
@@ -29,10 +34,13 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         tituloMaior = new javax.swing.JLabel();
         tituloMenor = new javax.swing.JLabel();
-        txtEntradaNumero = new javax.swing.JLabel();
-        tentativa = new javax.swing.JTextField();
-        botaoEnviarPalpite = new javax.swing.JButton();
-        printTelaUsuario = new javax.swing.JLabel();
+        txtInputTentativa = new javax.swing.JLabel();
+        inputTentativa = new javax.swing.JTextField();
+        botaoEnviarTentativa = new javax.swing.JButton();
+        txtFeedBack = new javax.swing.JLabel();
+        txtStatusTentativas = new javax.swing.JLabel();
+        botaoJogarNovamente = new javax.swing.JButton();
+        botaoFecharJogo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,34 +55,71 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
         tituloMenor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloMenor.setText("TENTE ADIVINHAR QUAL NUMERO DE 1 ATÉ 100 FOI SORTEADO!");
 
-        txtEntradaNumero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEntradaNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtEntradaNumero.setText("DIGITE UM NUMERO:");
+        txtInputTentativa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtInputTentativa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtInputTentativa.setText("DIGITE UM NUMERO:");
 
-        tentativa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tentativa.setText("100");
-        tentativa.setToolTipText("");
-        tentativa.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        tentativa.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        tentativa.addActionListener(new java.awt.event.ActionListener() {
+        inputTentativa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        inputTentativa.setText("100");
+        inputTentativa.setToolTipText("");
+        inputTentativa.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        inputTentativa.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        inputTentativa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tentativaActionPerformed(evt);
+                inputTentativaActionPerformed(evt);
             }
         });
 
-        botaoEnviarPalpite.setBackground(new java.awt.Color(0, 153, 153));
-        botaoEnviarPalpite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoEnviarPalpite.setText("ENVIAR PALPITE");
+        botaoEnviarTentativa.setBackground(new java.awt.Color(0, 153, 153));
+        botaoEnviarTentativa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoEnviarTentativa.setText("ENVIAR TENTATIVA");
+        botaoEnviarTentativa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEnviarTentativaActionPerformed(evt);
+            }
+        });
 
-        printTelaUsuario.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        printTelaUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        printTelaUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        printTelaUsuario.setText("Por favor digite um nùmero entre 1 e 100");
+        txtFeedBack.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtFeedBack.setForeground(new java.awt.Color(255, 255, 255));
+        txtFeedBack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFeedBack.setText("Por favor digite um nùmero entre 1 e 100");
+
+        txtStatusTentativas.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        txtStatusTentativas.setForeground(new java.awt.Color(255, 255, 255));
+        txtStatusTentativas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtStatusTentativas.setText("Você ainda tem 4 tentativas");
+
+        botaoJogarNovamente.setBackground(new java.awt.Color(0, 153, 153));
+        botaoJogarNovamente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoJogarNovamente.setText("JOGAR NOVAMENTE");
+        botaoJogarNovamente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoJogarNovamenteActionPerformed(evt);
+            }
+        });
+
+        botaoFecharJogo.setBackground(new java.awt.Color(0, 153, 153));
+        botaoFecharJogo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoFecharJogo.setText("FECHAR O JOGO");
+        botaoFecharJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoFecharJogoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtStatusTentativas)
+                        .addGap(237, 237, 237))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(botaoEnviarTentativa, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(260, 260, 260))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -84,18 +129,19 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
                         .addGap(75, 75, 75)
                         .addComponent(tituloMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(txtEntradaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tentativa, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addComponent(txtFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(printTelaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(botaoEnviarPalpite, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(261, 261, 261))
+                        .addGap(256, 256, 256)
+                        .addComponent(txtInputTentativa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputTentativa, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(botaoJogarNovamente)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoFecharJogo)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,15 +150,21 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
                 .addComponent(tituloMaior, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tituloMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(printTelaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEntradaNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tentativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(botaoEnviarPalpite, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addComponent(txtFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtStatusTentativas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtInputTentativa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputTentativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoEnviarTentativa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoJogarNovamente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoFecharJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,13 +181,62 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tentativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentativaActionPerformed
+    private void botaoEnviarTentativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarTentativaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tentativaActionPerformed
+        try {
+            int palpite = Integer.parseInt(inputTentativa.getText());
 
-    /**
-     * @param args the command line arguments
-     */
+            
+            if (palpite < 1 || palpite > 100) {
+                txtFeedBack.setText("Por favor, insira um número entre 1 e 100.");
+                return;
+            }
+
+            if (palpite == numeroSorteado) {
+                respostaCerta = true;
+                txtFeedBack.setText("Parabéns! Você conseguiu adivinhar em "+ (5 - tentativas + 1)+" tentativas!");
+                inputTentativa.setEditable(false);
+                botaoEnviarTentativa.setEnabled(false);
+                botaoJogarNovamente.setVisible(true);
+                botaoFecharJogo.setVisible(true);
+            } else if (palpite > numeroSorteado) {
+                txtFeedBack.setText("Dica: Tente um número menor.");
+            } else {
+                txtFeedBack.setText("Dica: Tente um número maior.");
+            }
+
+            tentativas--;
+            txtStatusTentativas.setText("Tentativas restantes: " + tentativas);
+
+            if (tentativas == 0 && !respostaCerta) {
+                txtFeedBack.setText("Você perdeu! O número era: " + numeroSorteado);
+                inputTentativa.setEditable(false); // Desativa o campo de texto
+                botaoEnviarTentativa.setEnabled(false);
+                botaoJogarNovamente.setVisible(true);
+                botaoFecharJogo.setVisible(true);
+            }
+
+        } catch (NumberFormatException ex) {
+            txtFeedBack.setText("Por favor, insira um número válido.");
+        }
+    }//GEN-LAST:event_botaoEnviarTentativaActionPerformed
+
+    private void inputTentativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTentativaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputTentativaActionPerformed
+
+    private void botaoJogarNovamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoJogarNovamenteActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new ViewJogoDeAdivinhacao().setVisible(true);
+    }//GEN-LAST:event_botaoJogarNovamenteActionPerformed
+
+    private void botaoFecharJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharJogoActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botaoFecharJogoActionPerformed
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -170,12 +271,15 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoEnviarPalpite;
+    private javax.swing.JButton botaoEnviarTentativa;
+    private javax.swing.JButton botaoFecharJogo;
+    private javax.swing.JButton botaoJogarNovamente;
+    private javax.swing.JTextField inputTentativa;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel printTelaUsuario;
-    private javax.swing.JTextField tentativa;
     private javax.swing.JLabel tituloMaior;
     private javax.swing.JLabel tituloMenor;
-    private javax.swing.JLabel txtEntradaNumero;
+    private javax.swing.JLabel txtFeedBack;
+    private javax.swing.JLabel txtInputTentativa;
+    private javax.swing.JLabel txtStatusTentativas;
     // End of variables declaration//GEN-END:variables
 }

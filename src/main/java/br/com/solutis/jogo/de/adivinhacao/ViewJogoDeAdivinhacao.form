@@ -43,6 +43,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="txtStatusTentativas" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="botaoEnviarTentativa" min="-2" pref="160" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -54,22 +67,23 @@
                           <Component id="tituloMenor" min="-2" pref="550" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-                          <Component id="txtEntradaNumero" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tentativa" min="-2" pref="55" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="txtFeedBack" min="-2" pref="671" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="printTelaUsuario" min="-2" pref="671" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="txtInputTentativa" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="inputTentativa" min="-2" pref="55" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
+                          <Component id="botaoJogarNovamente" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="botaoFecharJogo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="botaoEnviarPalpite" min="-2" pref="140" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -80,16 +94,23 @@
                   <Component id="tituloMaior" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="tituloMenor" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="printTelaUsuario" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace pref="57" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="txtFeedBack" min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="txtStatusTentativas" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtEntradaNumero" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="tentativa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtInputTentativa" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="inputTentativa" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="botaoEnviarPalpite" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="botaoEnviarTentativa" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="botaoJogarNovamente" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="botaoFecharJogo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -114,7 +135,7 @@
             <Property name="text" type="java.lang.String" value="TENTE ADIVINHAR QUAL NUMERO DE 1 AT&#xc9; 100 FOI SORTEADO!"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtEntradaNumero">
+        <Component class="javax.swing.JLabel" name="txtInputTentativa">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -123,7 +144,7 @@
             <Property name="text" type="java.lang.String" value="DIGITE UM NUMERO:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tentativa">
+        <Component class="javax.swing.JTextField" name="inputTentativa">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -138,10 +159,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tentativaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputTentativaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="botaoEnviarPalpite">
+        <Component class="javax.swing.JButton" name="botaoEnviarTentativa">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="0" type="rgb"/>
@@ -149,10 +170,13 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ENVIAR PALPITE"/>
+            <Property name="text" type="java.lang.String" value="ENVIAR TENTATIVA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEnviarTentativaActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="printTelaUsuario">
+        <Component class="javax.swing.JLabel" name="txtFeedBack">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="14" style="1"/>
@@ -163,6 +187,46 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Por favor digite um n&#xf9;mero entre 1 e 100"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtStatusTentativas">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Voc&#xea; ainda tem 4 tentativas"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="botaoJogarNovamente">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="JOGAR NOVAMENTE"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoJogarNovamenteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botaoFecharJogo">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="FECHAR O JOGO"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoFecharJogoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
