@@ -4,7 +4,7 @@ package br.com.solutis.jogo.de.adivinhacao;
 import java.util.Random;
 import java.util.Scanner;
 
-public class JogoDeAdivinhacao {
+public class LogicaJogoAdivinhacao {
 
     public static void main(String[] args) {
         
@@ -23,10 +23,9 @@ public class JogoDeAdivinhacao {
             System.out.println("Digite um número: ");
             int tentativa = scanner.nextInt();
             
-            // Validação para garantir que o número está entre 1 e 100
             if (tentativa < 1 || tentativa > 100) {
                 System.out.println("Por favor, digite um número entre 1 e 100.");
-                continue; // Volta ao início do laço
+                continue;
             }
 
             if (tentativa == numeroSorteado) {
@@ -43,7 +42,6 @@ public class JogoDeAdivinhacao {
             System.out.println("Tentativas restantes: " + tentativas+"\n");
         }
         
-        // Caso as tentativas acabem e a resposta esteja errada
         if (tentativas == 0 && !respostaCerta) {
             System.out.println("Não foi dessa vez! O número sorteado foi: " + numeroSorteado);
         }

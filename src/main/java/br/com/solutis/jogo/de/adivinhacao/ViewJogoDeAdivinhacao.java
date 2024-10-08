@@ -210,7 +210,7 @@ public class ViewJogoDeAdivinhacao extends javax.swing.JFrame {
 
             if (tentativas == 0 && !respostaCerta) {
                 txtFeedBack.setText("Você perdeu! O número era: " + numeroSorteado);
-                inputTentativa.setEditable(false); // Desativa o campo de texto
+                inputTentativa.setEditable(false);
                 botaoEnviarTentativa.setEnabled(false);
                 botaoJogarNovamente.setVisible(true);
                 botaoFecharJogo.setVisible(true);

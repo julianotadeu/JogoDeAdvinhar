@@ -39,6 +39,9 @@
           <Color blue="cc" green="99" red="0" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="ViewJogoDeAdivinhacao_jPanel1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
